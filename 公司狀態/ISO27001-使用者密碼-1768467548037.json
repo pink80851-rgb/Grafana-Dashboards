@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 37,
+  "id": 0,
   "links": [
     {
       "asDropdown": true,
@@ -109,20 +109,12 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "blue",
+                "color": "green",
                 "value": 0
               },
               {
-                "color": "#EAB839",
-                "value": 50
-              },
-              {
-                "color": "dark-orange",
-                "value": 60
-              },
-              {
-                "color": "semi-dark-red",
-                "value": 90
+                "color": "red",
+                "value": 80
               }
             ]
           }
@@ -130,12 +122,12 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 7,
+        "h": 17,
         "w": 24,
         "x": 0,
         "y": 0
       },
-      "id": 1,
+      "id": 2,
       "options": {
         "minVizHeight": 75,
         "minVizWidth": 75,
@@ -145,14 +137,11 @@
             "lastNotNull"
           ],
           "fields": "",
-          "values": false
+          "values": true
         },
         "showThresholdLabels": false,
         "showThresholdMarkers": true,
-        "sizing": "auto",
-        "text": {
-          "titleSize": 35
-        }
+        "sizing": "auto"
       },
       "pluginVersion": "12.2.0",
       "targets": [
@@ -172,13 +161,13 @@
           },
           "hide": false,
           "host": {
-            "filter": "DBSRV"
+            "filter": "$Host"
           },
           "item": {
-            "filter": "/Password Age for user.*/"
+            "filter": "/User:.*/"
           },
           "itemTag": {
-            "filter": ""
+            "filter": "USERDAY: DAY"
           },
           "macro": {
             "filter": ""
@@ -210,12 +199,12 @@
           }
         }
       ],
-      "title": "0.66使用者帳號天數",
+      "title": "DBSRV",
       "transformations": [
         {
           "id": "renameByRegex",
           "options": {
-            "regex": ".*: (.*)",
+            "regex": "^User:(.*)$",
             "renamePattern": "$1"
           }
         }
@@ -229,15 +218,42 @@
     "other"
   ],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "current": {
+          "text": "NAS-M",
+          "value": "NAS-M"
+        },
+        "datasource": {
+          "type": "alexanderzobnin-zabbix-datasource",
+          "uid": "ef8qmnvun0vswd"
+        },
+        "definition": "",
+        "includeAll": false,
+        "label": "主機",
+        "name": "Host",
+        "options": [],
+        "query": {
+          "application": "",
+          "group": "/Raid/",
+          "host": "/.*/",
+          "item": "",
+          "itemTag": "",
+          "queryType": "host"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      }
+    ]
   },
   "time": {
-    "from": "now-2d",
+    "from": "now-3h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "browser",
   "title": "ISO27001-使用者密碼",
   "uid": "adnkt8x",
-  "version": 21
+  "version": 43
 }
