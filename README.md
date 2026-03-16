@@ -1,5 +1,3 @@
-
-這份 README 的設計重點在於：強調「為什麼要監控」以及「監控了什麼指標」。
 📊 Enterprise Monitoring Dashboards (Grafana + Zabbix)這個儲存庫存放了我為企業環境開發的 Grafana 儀表板配置（JSON 格式）。
 透過 Zabbix 7.0 採集底層數據，並在 Grafana 實現高度可視化的維運管理，旨在消除監控真空期並提升系統可觀測性 。
 
